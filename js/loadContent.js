@@ -22,8 +22,9 @@ addServers = function(servers) {
 	var table = $('#server-table');
 	for(var i=0; i<servers.length; i+=1) {
 		server = servers[i];
-		html = '<tr><td>' + server.hostname + '</td>';
-		html += '<td>' + server.status + '</td>';
+		html = '<tr><td>' + server.hostname + '.pd.local' + '</td>';
+		button = '<button value="' + server.status + '" id="' + server.hostname + '">Server Status: ' + server.status + '</button>'
+		html += '<td>' + button + '</td>';
 		html += '<td>' + server.build + '</td>';
 		html += '<td>' + server.os + '</td>';
 		html += '<td>' + server.licenses + '</td></tr></tbody>';
