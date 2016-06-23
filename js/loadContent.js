@@ -1,4 +1,4 @@
-var sheetsuUrl = 'https://sheetsu.com/apis/v1.0/34811115b8f7';
+var sheetsuUrl = 'https://sheetsu.com/apis/v1.0/f3b37b87d6ec';
 
 // Load API
 $.ajax({
@@ -28,9 +28,9 @@ addServers = function(servers) {
 		html = '<tr><td>' + server.hostname + '.pd.local' + '</td>';
 		button = '<button class="status-button" value="' + server.status + '" id="' + server.hostname + '">Server Status: ' + server.status + '</button>'
 		html += '<td>' + button + '</td>';
-		html += '<td>' + server.build + '</td>';
-		html += '<td>' + server.os + '</td>';
-		html += '<td>' + server.licenses + '</td></tr></tbody>';
+		html += '<td>' + fullBuild(server.build) + '</td>';
+		html += '<td>' + getOS(server.os) + '</td>';
+		html += '<td>' + server.licenses + '</td></tr>';
 		table.append(html);
 	}
 };
@@ -40,7 +40,9 @@ addClicks = function() {
 	$(".status-button").click(function(){
 		var domObj = $(this);
 		var buttonElement = domObj.get(0);
-		changeStatus(buttonElement.id, domObj.val())
+		var status = changeStatus(buttonElement.id, domObj.val())
+		domObj.val(status);
+		buttonElement.innerHTML = "Server Status: " + status;
 	});
 };
 
@@ -62,7 +64,7 @@ changeStatus = function(hostname, status) {
 		notes:""};
 
 	$.ajax({
-		url: 'https://sheetsu.com/apis/v1.0/34811115b8f7/hostname/' + hostname,
+		url: sheetsuUrl + '/hostname/' + hostname,
 		data: data,
 		dataType: 'json',
 		type: 'PUT',
@@ -77,4 +79,36 @@ changeStatus = function(hostname, status) {
 			console.log(data);
 		}
 	});
+
+	return status;
 };
+
+fullBuild = function(build) {
+	if (build === "Q2") {
+		return "2016 Q2 Release"
+	}
+	else if (build === "Q4") {
+		return "Q4 - 2015 October Release"
+	} 
+	else if (build === "Oct14") {
+		return "2014 October Release"
+	}
+	else if (build === "Apr14") {
+		return "2014 April Release"
+	}
+	else if (build.indexOf("SP") > -1) {
+		return 'Service Pack: ' + build.substring(2)
+	}
+	else {
+		return build
+	}
+}
+
+getOS = function(os) {
+	if (os === "U") {
+		return "Red Hat Linux"
+	}
+	else {
+		return "Windows Server"
+	}
+}
