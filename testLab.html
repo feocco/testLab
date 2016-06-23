@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.0.0-alpha1.js"></script>
+	<script type="text/javascript" src="js/tablesorter/jquery-latest.js"></script> 
+	<script type="text/javascript" src="js/tablesorter/jquery.tablesorter.js"></script> 
+	<!-- Populate table with sheetsu API data -->
+	<script src="js/loadContent.js"></script>
+</head>
+<body>
+<!-- Nav Bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Test Lab - Status Page</a>
+			</div>
+			<div class="nav-center">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Home</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main Content -->
+	<div class="container-fluid background">
+		<div class="main-content">
+			<h2>Blackboard Learn Environments</h2>
+			<table class='table table-hover table-striped table-bordered tablesorter' id='server-table'>
+				<thead>
+				<tr>
+					<th>Host Name</th>
+					<th>Status</th>
+					<th>Build</th>
+					<th>OS</th>
+					<th>Licenses</th>
+				</tr>
+				</thead>
+				<tbody>
+				<!-- </tbody> Added in js/loadContent.js-->
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() 
+		    { 
+		        $("#server-table").tablesorter(); 
+		    } 
+		); 
+		    
+	</script>
+</body>
+</html>
