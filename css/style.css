@@ -1,0 +1,11 @@
+.status-button {
+	color: black;
+}
+
+option[value="Up"] {
+	color: !important green;
+}
+
+body {
+	padding-top: 70px;
+}

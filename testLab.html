@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS, style.css, jquery -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Populate table with sheetsu API data -->
 	<script src="js/loadContent.js"></script>
 </head>
-<body style="padding-top: 70px;">
+<body>
 	<!-- Nav Bar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
@@ -29,11 +30,11 @@
 			<table class='table table-hover table-striped table-bordered' id='server-table'>
 				<thead>
 				<tr>
-					<th>Host Name</th>
-					<th>Status</th>
-					<th>Build</th>
-					<th>OS</th>
-					<th>Licenses</th>
+					<th><span>Host Name</span></th>
+					<th><span>Status</span></th>
+					<th><span>Build</span></th>
+					<th><span>Operating System</span></th>
+					<th><span>Licenses</span></th>
 				</tr>
 				</thead>
 				<tbody>
